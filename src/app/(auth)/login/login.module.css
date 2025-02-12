@@ -1,0 +1,55 @@
+.loginFormWrapper{
+    max-width: 449px;
+    width: 449px;
+    padding: 40px 32px ;
+    border: 0.5px solid #E8E9EA;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 48px;
+}
+
+.header{
+    font-size: 29px;
+    font-weight: 600;
+}
+
+.inputField{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 8px;
+}
+
+.inputField p {
+    line-height: 19px;
+    size: 12px;
+    color: #666C75;
+    font-weight: 500;
+}
+
+.formContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.inputLabels{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.forgotPasswordLink{
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #666C75;
+}
+
+.errorMessage{
+    font-size: 8px;
+    color: red !important;
+}

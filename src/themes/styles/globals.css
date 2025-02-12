@@ -1,0 +1,53 @@
+:root {
+  --background-color: #ffffff;
+  --foreground-color: #1B2331;
+
+
+  --heading-large-font: 37px;
+  --heading-medium-font: 29px;
+  --heading-small-font: 23px;
+  --body-large-font: 19px;
+  --body-medium-font: 15px;
+  --body-small-font: 13px;
+  --body-extra-small-font: 12px;
+
+  --primary-font-color-1: #1B2331;
+  --primary-font-color-2: #494F5A;
+  --primary-font-color-3: #969AA0;
+  --primary-font-color-4: #666C75;
+  --primary-font-color-5: #B8BBBF;
+  --primary-font-color-6: #E8E9EA;
+
+  --danger-color:#FF3B30;
+
+
+}
+
+html,
+body {
+  font-family: "Hiragino Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: "Hiragino Sans";
+  src: local("Hiragino Sans"), local("ヒラギノ角ゴ Pro W3"), local("ヒラギノ角ゴ ProN");
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
