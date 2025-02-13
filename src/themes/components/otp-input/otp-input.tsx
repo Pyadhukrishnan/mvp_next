@@ -7,7 +7,7 @@ interface OtpInputProps{
     onChange:(value:string) =>void;
 }
 
-const OtpInput:React.FC<OtpInputProps> = ({length,onChange}) => {
+const OtpInput:React.FC<OtpInputProps> = ({length=6,onChange}) => {
     // State to store OTP values in an array
   const [otp, setOtp] = useState(new Array(length).fill(""));
   

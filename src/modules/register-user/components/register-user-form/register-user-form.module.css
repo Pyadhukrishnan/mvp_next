@@ -1,4 +1,4 @@
-.loginFormWrapper{
+.registerUserForm{
     max-width: 449px;
     width: 449px;
     padding: 40px 32px ;
@@ -8,6 +8,20 @@
     align-items: flex-start;
     row-gap: 48px;
 }
+
+.formFields{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+
+.inputFields{
+    display:flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
 
 .header{
     font-size: var(--heading-medium-font);

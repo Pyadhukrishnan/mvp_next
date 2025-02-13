@@ -36,3 +36,22 @@ export const validatePassword = (password:string) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{12,20}$/;
     return passwordRegex.test(password);
 };
+
+
+/**
+ * Validates both passwords.
+ *
+ * @param {string} newPassword - The password to be validated.
+ * @param {string} confirmPassword - The confirm password to be validated.
+ * @returns {boolean} `true` if the passwords are the same otherwise `false`.
+ *
+ * @example
+ * validatePasswordsMatch("Password123","Password123"); // true
+ * validatePasswordsMatch("invalidPassword","Password123"); // false
+ */
+export const validatePasswordsMatch = (newPassword:string,confirmPassword:string) => {
+    if(confirmPassword === "" ){
+        return true;
+    }
+    return newPassword === confirmPassword ? true: false;
+}

@@ -57,7 +57,7 @@ interface LoginProps {
         setMainError(undefined);
       }, [email, password]);
     return (
-      <form className={styles.loginFormWrapper} onSubmit={handleSubmit}>
+      <form className={styles.loginFormWrapper} onSubmit={handleSubmit} >
         {/* Header */}
         <div className={styles.header}>ログイン</div>
   
@@ -66,7 +66,7 @@ interface LoginProps {
           {/* Email Input */}
           <div className={styles.inputField}>
             <p>メールアドレスまたはユーザー名</p>
-            <InputField value={email} onChange={setEmail} />
+            <InputField value={email} onChange={setEmail} errorStatus={emailError?true:false} />
             {emailError && <p className={styles.errorMessage}>{emailError}</p>}
           </div>
   
@@ -81,7 +81,7 @@ interface LoginProps {
                 パスワードを忘れた
               </p>
             </div>
-            <InputField type="password" value={password} onChange={setPassword} />
+            <InputField type="password" value={password} onChange={setPassword} errorStatus={passwordError || mainError?true:false}/>
             {passwordError && (
               <p className={styles.errorMessage}>{passwordError}</p>
             )}

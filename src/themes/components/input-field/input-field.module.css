@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    transition: all 0.4s;
   }
   
   .inputField {
@@ -17,8 +18,18 @@
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 16px;
+    font-size: var(--body-medium-font);
     font-weight: 400;
+  }
+
+  .error{
+    border-color: var(--danger-color);
+    box-shadow: 0px 0px 12px 1px rgba(255, 58, 48, 0.272);
+  }
+
+  .default:focus-within{
+    border-color: var(--primary-font-color-1);
+    box-shadow: 0 0 5px rgba(2, 35, 69, 0.5);
   }
   
   .default button {

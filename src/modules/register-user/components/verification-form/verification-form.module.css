@@ -1,0 +1,62 @@
+@keyframes slideInFromLeft {
+    from {
+      transform: translateX(+100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+.verificationFormWrapper{
+    max-width: 368px;
+    width:368px;
+    padding: 32px;
+    border: 0.5px solid var(--primary-font-color-6);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.header h2{
+    font-size: var(--body-large-font);
+    color: var(--primary-font-color-2);
+    font-weight: 700;
+}
+
+.header p{
+    font-size: var(--body-medium-font);
+    color: var(--primary-font-color-1);
+    font-weight: 400;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.email{
+    color:var(--primary-font-color-1);
+}
+
+.resendButton{
+    text-decoration: underline;
+    color: var(--primary-font-color-1);
+    font-size: var(--body-small-font);
+    font-weight: 700;
+    cursor:pointer;
+}
