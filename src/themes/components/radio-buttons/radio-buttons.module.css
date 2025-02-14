@@ -21,21 +21,26 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 2px solid #000000;
+    border: 2px solid #007bff;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     transition: all 0.3s ease;
-    background-color: #ffffff;
   }
   
-  /* Inner filled dot */
+  /* When radio is checked, make outer circle dark and inner circle white */
+  .radioInput:checked + .radioCircle {
+    background-color: #007bff; /* Dark outer */
+    border-color: #007bff;
+  }
+  
+  /* Inner white dot when selected */
   .radioInput:checked + .radioCircle::before {
     content: "";
     width: 8px;
     height: 8px;
-    background-color: rgb(0, 0, 0);
+    background-color: #ffffff; /* White inner */
     border-radius: 50%;
     position: absolute;
   }
