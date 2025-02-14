@@ -60,3 +60,10 @@
     font-weight: 700;
     cursor:pointer;
 }
+
+.error{
+    width: 100%;
+    font-size: 8px;
+    color: var(--danger-color)!important;
+    text-align: center;
+}

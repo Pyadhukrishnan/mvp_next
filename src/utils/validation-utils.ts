@@ -55,3 +55,20 @@ export const validatePasswordsMatch = (newPassword:string,confirmPassword:string
     }
     return newPassword === confirmPassword ? true: false;
 }
+
+
+/**
+ * Validates OTP.
+ *
+ * @param {string} otp- The password to be validated.
+ * @returns {boolean} `true` if the otp is validated otherwise `false`.
+ *
+ * @example
+ * validateOtp("456783""); // true
+ * validateOtp("i6hh8"); // false
+ */
+export const validateOtp = (otp: string): boolean => {
+    const otpRegex = /^\d{6}$/; // Matches exactly six digits
+    return otpRegex.test(otp);
+  };
+  

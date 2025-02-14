@@ -1,5 +1,5 @@
 export interface LoginResponse{
-    status: boolean;
+    status: boolean | "error";
     message: string;
     errors:{
         emailError?:string;
@@ -10,11 +10,17 @@ export interface LoginResponse{
 
 
 export interface RegisterUserResponse{
-    status: boolean;
+    status: boolean | "error";
     message: string;
     errors:{
         emailError?:string;
         passwordError?:string;
         mainError?:string;
     }
+}
+
+
+export interface VerifyRegistrationResponse{
+    status: boolean | "error";
+    message: string;
 }

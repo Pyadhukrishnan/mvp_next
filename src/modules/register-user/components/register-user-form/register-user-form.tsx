@@ -83,7 +83,7 @@ const RegisterUserForm: React.FC<RegistrationFormProps> = ({
     } else {
       setConfirmPasswordError("");
     }
-  }, [confirmPassword]);
+  }, [confirmPassword,newPassword]);
 
   // Clears email and password error messages when values change
   useEffect(() => {

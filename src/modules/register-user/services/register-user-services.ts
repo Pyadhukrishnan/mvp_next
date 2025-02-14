@@ -1,5 +1,12 @@
-import { RegisterUserResponse } from "@/interfaces/authentication";
-import { validateEmail, validatePassword } from "@/utils/validation-utils";
+import {
+  RegisterUserResponse,
+  VerifyRegistrationResponse,
+} from "@/interfaces/authentication";
+import {
+  validateEmail,
+  validateOtp,
+  validatePassword,
+} from "@/utils/validation-utils";
 
 /**
  * Custom hook for handling user registration services.
@@ -15,7 +22,7 @@ export default function UseRegisterUserService() {
    * @param {string} newPassword - The new password chosen by the user.
    * @param {string} confirmPassword - The confirmation of the new password.
    * @returns {Promise<RegisterUserResponse>} - A promise resolving to a response object indicating success or failure.
-   * 
+   *
    * @throws Will throw an error if an exception occurs during validation or registration.
    */
   const registerUser = async (
@@ -43,8 +50,8 @@ export default function UseRegisterUserService() {
         errors = {
           ...errors,
           passwordError:
-            "12文字以上20文字以内で、半角の大文字, 小文字, 数字を含めてください。", 
-            // "Password must be between 12 to 20 characters and include uppercase, lowercase, and numbers."
+            "12文字以上20文字以内で、半角の大文字, 小文字, 数字を含めてください。",
+          // "Password must be between 12 to 20 characters and include uppercase, lowercase, and numbers."
         };
       }
 
@@ -71,7 +78,58 @@ export default function UseRegisterUserService() {
     }
   };
 
+  /**
+   * @function verifyRegistration
+   * @description Validates a one-time password (OTP) by checking its format and comparing it to a predefined value.
+   *
+   * @param {string} otp - The OTP input provided by the user.
+   * @returns {Promise<VerifyRegistrationResponse>} A promise resolving to an object containing the validation status and message.
+   *
+   * @throws {Error} If an unexpected error occurs during execution.
+   *
+   * @example
+   * ```tsx
+   * const response = await verifyRegistration("123456");
+   * console.log(response); // { status: true, message: "OTP Validated" }
+   * ```
+   */
+  const verifyRegistration = async (
+    otp: string
+  ): Promise<VerifyRegistrationResponse> => {
+    try {
+      console.log(otp);
+      // Validate OTP format (must be a 6-digit number)
+      if (!validateOtp(otp)) {
+        return {
+          status: "error",
+          message: "無効な OTP。 6 桁の数字である必要があります",
+        };
+      }
+
+      // Simulated API check for OTP validation
+      if (otp === "123456") {
+        return {
+          status: true,
+          message: "OTP Validated",
+        };
+      }
+
+      // Return an error if the OTP is incorrect
+      return {
+        status: "error",
+        message: "OTP is incorrect",
+      };
+    } catch (error) {
+      // Handle unexpected errors
+      return {
+        status: "error",
+        message: "An unexpected error occurred",
+      };
+    }
+  };
+
   return {
     registerUser,
+    verifyRegistration,
   };
 }
