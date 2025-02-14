@@ -112,7 +112,6 @@ const RegisterUserForm: React.FC<RegistrationFormProps> = ({
           <div className={styles.inputField}>
             <p>パスワード</p>
             <InputField
-              type="password"
               value={newPassword}
               onChange={setNewPassword}
               errorStatus={!!newPasswordError}

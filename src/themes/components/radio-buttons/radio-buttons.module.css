@@ -1,0 +1,47 @@
+.radiobuttonsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+  }
+  
+  .radioInput {
+    display: none; /* Hide default radio */
+  }
+  
+  .radioCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+  }
+  
+  /* Inner filled dot */
+  .radioInput:checked + .radioCircle::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  /* Hover effect */
+  .radioLabel:hover .radioCircle {
+    border-color: #0056b3;
+  }
+  

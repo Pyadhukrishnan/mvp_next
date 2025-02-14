@@ -21,7 +21,7 @@ const Login = () => {
         !isLoginCompleted ? (
           <LoginForm setShowLogin={setShowLogin} setIsLoginCompleted={setIsLoginCompleted} setLoginEmail={setEmail}/>
         ) : (
-          <VerificationForm email="" onClick={handleVerification}/>
+          <VerificationForm email="" onClick={handleVerification} error=""/>
         )
       ) : (
         <ResetForm setLoginToggle={setShowLogin} />

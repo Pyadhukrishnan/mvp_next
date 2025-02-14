@@ -7,13 +7,15 @@ interface ButtonComponentProps{
     buttonSize?:"large" | "small";
     theme?:string;
     disabled?:boolean;
+    width?:string;
 }
 
 const ButtonComponent:React.FC<ButtonComponentProps> = ({label,
     buttonSize="large",
     onClick,
     theme="default",
-    disabled=false
+    disabled=false,
+    width="100%"
 }) => {
     /**
      * @function themeClass
@@ -47,7 +49,7 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({label,
         }
     };
   return (
-    <button className={`${size(buttonSize)} ${themeClass(theme)}`} onClick={onClick} disabled={disabled}>
+    <button style={width ? { width } : undefined} className={`${size(buttonSize)} ${themeClass(theme)}`} onClick={onClick} disabled={disabled}>
             {label}
         </button>
   )

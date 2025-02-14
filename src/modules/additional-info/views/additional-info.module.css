@@ -1,0 +1,51 @@
+.additionalFormWrapper {
+  width: 608px;
+  max-width: 608px;
+  padding: 32px;
+  border: 0.5px solid var(--primary-font-color-6);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+}
+
+.header h2{
+    font-size: var(--heading-medium-font);
+    font-weight: 600;
+}
+
+.header p{
+    font-size: var(--body-medium-font);
+    color: var(--primary-font-color-2);
+    font-weight: 400;
+}
+
+.formFields{
+    margin-top: 12px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    row-gap: 16px;
+    align-items: center;
+}
+
+.inputFields{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.inputFields p{
+    font-size: var(--body-extra-small-font);
+    color: var(--primary-font-color-4);
+    font-weight: 500;
+}

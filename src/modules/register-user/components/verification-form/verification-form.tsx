@@ -17,7 +17,7 @@ interface VerificationFormProps {
    */
   onClick: (otpValue:string) => void;
 
-  error:string | undefined;
+  error?:string | undefined;
 }
 
 /**
