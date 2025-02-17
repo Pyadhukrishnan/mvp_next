@@ -1,27 +1,47 @@
 .radiobuttonsWrapper {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
   }
   
   .radioLabel {
+    max-width: 124px;
+    width: 124px;
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: var(--body-medium-font);
     user-select: none;
+    flex-direction: row-reverse;
+    border: 1px solid var(--primary-font-color-6);
+    border-radius: 2px;
+    padding: 10px 16px;
+    justify-content: space-between;
+    color: var(--primary-font-color-1);
+    font-weight: 400;
+    transition: all 0.4s ease;
+  }
+
+  .radioLabel:hover{
+    border-color: var(--primary-font-color-1);
+    box-shadow: 0 0 5px rgba(2, 35, 69, 0.5);
   }
   
   .radioInput {
     display: none; /* Hide default radio */
   }
+
+  .error{
+    border-color: var(--danger-color);
+    box-shadow: 0px 0px 12px 1px rgba(255, 58, 48, 0.272);
+  }
   
   .radioCircle {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    border: 2px solid #007bff;
+    border: 2px solid var(--primary-font-color-5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,8 +51,8 @@
   
   /* When radio is checked, make outer circle dark and inner circle white */
   .radioInput:checked + .radioCircle {
-    background-color: #007bff; /* Dark outer */
-    border-color: #007bff;
+    background-color: var(--primary-font-color-2); /* Dark outer */
+    border-color: var(--primary-font-color-2);
   }
   
   /* Inner white dot when selected */
@@ -44,9 +64,15 @@
     border-radius: 50%;
     position: absolute;
   }
+
+  .radioLabel:has(.radioInput:checked) {
+    border-color: var(--primary-font-color-1);
+  }
+  
+
   
   /* Hover effect */
   .radioLabel:hover .radioCircle {
-    border-color: #0056b3;
+    border-color: var(--primary-font-color-2);
   }
   

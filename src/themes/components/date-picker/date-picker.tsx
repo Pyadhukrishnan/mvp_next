@@ -302,11 +302,14 @@ const DatePicker: React.FC<DatePickerProps> = ({
           background-color: transparent;
           cursor: pointer;
           outline: none;
-          transition: all 0.4s ease;
+          ransition: transform 0.3s ease;
         }
 
+        .date-input span{
+          transition: transform 0.3s ease;
+        }
 
-        .rotate{
+        .date-input span:has(.rotate){
           transform: rotate(180deg);
         }
 

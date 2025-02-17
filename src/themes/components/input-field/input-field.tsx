@@ -7,6 +7,7 @@ interface InputFieldProps{
   onChange:(value:string)=>void;
   value:string;
   errorStatus?:boolean;
+  width?:string;
 }
 
 const InputField:React.FC<InputFieldProps> = ({
@@ -14,7 +15,8 @@ const InputField:React.FC<InputFieldProps> = ({
   type="text",
   onChange,
   value,
-  errorStatus=false
+  errorStatus=false,
+  width
 }) => {
   // State to track password visibility
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -55,7 +57,7 @@ const InputField:React.FC<InputFieldProps> = ({
     onChange(e.target.value);
   };
   return (
-    <div className={`${styles.default} ${setTheme(theme)} ${errorStatus?styles.error:null}`}>
+    <div style={width ? { width } : undefined} className={`${styles.default} ${setTheme(theme)} ${errorStatus?styles.error:null}`}>
       <input 
         className={styles.inputField} 
         type={inputType} 

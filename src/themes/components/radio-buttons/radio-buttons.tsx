@@ -5,9 +5,10 @@ import { Options } from '@/interfaces/user';
 interface RadioButtonsProps {
   options: Options[];
   onSelect: (value: string) => void;
+  error?:boolean;
 }
 
-const RadioButtons: React.FC<RadioButtonsProps> = ({ options, onSelect }) => {
+const RadioButtons: React.FC<RadioButtonsProps> = ({ options, onSelect, error }) => {
   const [selectedValue, setSelectedValue] = useState<string>("");
 
   const handleSelection = (value: string) => {
@@ -18,7 +19,7 @@ const RadioButtons: React.FC<RadioButtonsProps> = ({ options, onSelect }) => {
   return (
     <div className={styles.radiobuttonsWrapper}>
       {options.map((option) => (
-        <label key={option.value} className={styles.radioLabel}>
+        <label key={option.value} className={`${error?styles.error:null} ${styles.radioLabel}`}>
           <input
             type="radio"
             value={option.value}

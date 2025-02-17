@@ -2,6 +2,7 @@
 import { Options } from '@/interfaces/user';
 import DatePicker from '@/themes/components/date-picker/date-picker';
 import RadioButtons from '@/themes/components/radio-buttons/radio-buttons';
+import SelectionComponent from '@/themes/components/selection-component/selection-component';
 import React, { useEffect, useState } from 'react';
 
 export default function page() {
@@ -37,7 +38,7 @@ export default function page() {
     },[date])
   return (
     <div style={{marginTop:"100px"}}>
-        <RadioButtons options={options} onSelect={setDate} />
+        <SelectionComponent options={options} setSelected={setDate} error={true}/>
     </div>
   )
 }
