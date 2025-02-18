@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './button-component.module.css';
 
 interface ButtonComponentProps{
-    label:string;
+    label:string | React.ReactNode;
     onClick:()=>void;
     buttonSize?:"large" | "small";
     theme?:string;
@@ -13,7 +13,7 @@ interface ButtonComponentProps{
 const ButtonComponent:React.FC<ButtonComponentProps> = ({label,
     buttonSize="large",
     onClick,
-    theme="default",
+    theme="normal",
     disabled=false,
     width="100%"
 }) => {
@@ -27,6 +27,8 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({label,
         switch (theme) {
             case "normal":
                 return styles.normal;
+            case "outline":
+                return styles.outline;
             default:
                 return styles.default;
         }
@@ -49,7 +51,7 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({label,
         }
     };
   return (
-    <button style={width ? { width } : undefined} className={`${size(buttonSize)} ${themeClass(theme)}`} onClick={onClick} disabled={disabled}>
+    <button style={width ? { width } : undefined} className={`${size(buttonSize)} ${themeClass(theme)} ${styles.default}`} onClick={onClick} disabled={disabled}>
             {label}
         </button>
   )

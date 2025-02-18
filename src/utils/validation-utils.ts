@@ -33,7 +33,7 @@ export const validateEmail = (email:string) => {
  * validatePassword("weakpass"); // false
  */
 export const validatePassword = (password:string) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{12,20}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{12,20}$/;
     return passwordRegex.test(password);
 };
 

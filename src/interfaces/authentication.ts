@@ -1,7 +1,7 @@
 export interface LoginResponse{
     status: boolean | "error";
     message: string;
-    errors:{
+    errors?:{
         emailError?:string;
         passwordError?:string;
         mainError?:string;

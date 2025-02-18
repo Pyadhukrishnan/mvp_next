@@ -2,6 +2,7 @@ import {
   RegisterUserResponse,
   VerifyRegistrationResponse,
 } from "@/interfaces/authentication";
+import http from "@/utils/http";
 import {
   validateEmail,
   validateOtp,
@@ -61,6 +62,11 @@ export default function UseRegisterUserService() {
         validatePassword(newPassword) &&
         validatePassword(confirmPassword)
       ) {
+        
+        const otpVerification = true;
+        const props: JSON = <JSON>(<unknown>{email, newPassword, otpVerification });
+        const { body } = await http().post("auth/admin/signup", props, false);
+        console.log(body);
         return {
           status: true,
           message: "Registration Successful",

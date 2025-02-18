@@ -1,0 +1,36 @@
+.underReviewWrapper{
+    border: 0.5px solid var(--primary-font-color-6);
+    width: 406px;
+    padding: 31px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 32px;
+    border-radius: 20px;
+}
+
+.headerDescription{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+.headerDescription h2{
+    text-align: center;
+    font-size: var(--body-large-font);
+    font-weight: 700;
+    color: var(--primary-font-color-1);
+}
+
+.headerDescription p{
+    font-size: var(--body-medium-font);
+    color: var(--primary-font-color-2);
+    text-align: center;
+    font-weight: 400;
+}
+
+.logo{
+    width: 64px;
+    height: 64px;
+}
+

@@ -10,6 +10,8 @@
  */
 
 import { LoginResponse } from "@/interfaces/authentication";
+import { setAuthCookies } from "@/utils/cookies";
+import http from "@/utils/http";
 import { validateEmail, validatePassword } from "@/utils/validation-utils";
 
 
@@ -34,67 +36,54 @@ export default function UseLoginServices() {
      * console.log(response); // { status: true, message: "Login successful", errors: {} }
      */
     const login = async (email:string, password:string):Promise<LoginResponse> => {
-        let errors:{
-            emailError?:string;
-            passwordError?:string;
-            mainError?:string;
-        } = {};
-
-        // Validate email format
-        if (!validateEmail(email)) {
-            errors = {
-                emailError: "有効なメールアドレスを入力してください", // "Please enter a valid email address."
-                ...errors
-            };
-        }
-
-        // Validate password format
-        if (!validatePassword(password)) {
-            errors = {
-                ...errors,
-                passwordError: "12文字以上20文字以内で、半角の大文字, 小文字, 数字を含めてください。" 
-                // "Password must be between 12 and 20 characters long and include uppercase, lowercase letters, and numbers."
-            };
-        }
-
-        // If validation fails, return error messages
-        if (!validateEmail(email) || !validatePassword(password)) {
-            return {
-                status: false,
-                message: "Validation failed",
-                errors: errors
-            };
-        }
-
-        // Hardcoded authentication check
-        if (email === "admin@gmail.com") {
-            if (password === "MainAdmin12345") {
-                console.log("Login successful");
-                return {
-                    status: true,
-                    message: "Login successful",
-                    errors: {}
+        try{
+            let errors:{
+                emailError?:string;
+                passwordError?:string;
+                mainError?:string;
+            } = {};
+    
+            // Validate email format
+            if (!validateEmail(email)) {
+                errors = {
+                    emailError: "有効なメールアドレスを入力してください", // "Please enter a valid email address."
+                    ...errors
                 };
-            } else {
+            }
+    
+            // Validate password format
+            if (!validatePassword(password)) {
+                errors = {
+                    ...errors,
+                    passwordError: "12文字以上20文字以内で、半角の大文字, 小文字, 数字を含めてください。" 
+                    // "Password must be between 12 and 20 characters long and include uppercase, lowercase letters, and numbers."
+                };
+            }
+    
+            // If validation fails, return error messages
+            if (!validateEmail(email) || !validatePassword(password)) {
                 return {
                     status: false,
-                    message: "Login failed",
-                    errors: {
-                        ...errors,
-                        mainError: "Password mismatched"
-                    }
+                    message: "Validation failed",
+                    errors: errors
                 };
             }
-        }
-
-        // Default response if email is not found (Consider implementing actual API call)
-        return {
-            status: false,
-            message: "Invalid email or password",
-            errors: {
-                mainError: "Invalid credentials"
+    
+            const props: JSON = <JSON>(<unknown>{ email,password });
+            const { body } = await http().post("auth/admin/signin", props,false);
+            if (body.status === true) {
+                localStorage.setItem("accessToken", body.data.accessToken);
+                localStorage.setItem("refreshToken", body.data.refreshToken);
+                setAuthCookies(body.data.accessToken)
             }
-        };
+            console.log(body);
+            return{
+                status:body.status,
+                message:body.message
+            }
+        }catch(error){
+            throw error;
+        }
     };
 
     return {

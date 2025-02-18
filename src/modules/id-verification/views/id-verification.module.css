@@ -1,0 +1,135 @@
+.idVerificationForm {
+  height: max-content;
+  width: 449px;
+  max-width: 449px;
+  padding: 32px;
+  border: 0.5px solid var(--primary-font-color-6);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.header h2{
+    font-size: var(--heading-medium-font);
+    font-weight: 600;
+}
+
+.header p{
+    font-size: var(--body-medium-font);
+    color: var(  --primary-font-color-2);
+    font-weight: 400;
+}
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    align-items: center;
+}
+
+
+.inputField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.inputField p{
+    font-size: var(--body-small-font);
+    color: var(--primary-font-color-4);
+}
+
+.description p{
+    font-size: var(--body-small-font);
+    color: var(--primary-font-color-4);
+}
+
+
+.buttonLabel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4px;
+    font-size: var(--body-small-font);
+    font-weight: 400;
+}
+
+.uploadedFiles{
+    width: 100%;
+}
+
+.fileList {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .filePreviewItem {
+    border: 0.5px solid var(--primary-font-color-6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 2px;
+    width: 100%;
+  }
+  
+  .fileInfo {
+    display: flex;
+    align-items: center;
+    max-width: 85%;
+  }
+  
+  .imagePreviewContainer {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  
+  .imagePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .fileDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fileName {
+    font-weight: 500;
+    margin-bottom: 4px;
+    word-break: break-all;
+  }
+  
+  .fileSize {
+    color: #666;
+    font-size: 0.875rem;
+  }
+  
+  .removeButton {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .removeButton:hover {
+    background-color: #ff7875;
+  }

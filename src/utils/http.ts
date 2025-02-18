@@ -6,8 +6,26 @@ const axioClient = Axios.create({
   headers: {
     "X-Requested-With": "XMLHttpRequest",
   },
-  withCredentials: true,
+  withCredentials: false,
 });
+
+// Attach Authorization token dynamically before each request
+axioClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("accessToken");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    } else {
+      console.warn("No access token found!");
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 const http = () => {
   /**
@@ -15,60 +33,62 @@ const http = () => {
    * @param url - API endpoint path
    * @param props - Request data
    * @param hasFile - Flag for file upload
+   * @param requireAuth - Whether Authorization header is needed (default: true)
    * @returns Response data
    */
   const post = async (
     url: string,
     props?: JSON | FormData,
-    hasFile?: boolean
+    hasFile?: boolean,
+    requireAuth: boolean = true // Default to true
   ) => {
     const fullUrl = `${backendUrl}${url}`;
+    
     let config: AxiosRequestConfig = {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": hasFile ? "multipart/form-data" : "application/json",
       },
     };
-    if (hasFile) {
-      config = {
-        headers: {
-          "content-type": "multipart/form-data",
+
+    // Remove Authorization header if authentication is not required
+    if (!requireAuth) {
+      delete config.headers!.Authorization;
+    }
+
+    try {
+      const response = await axioClient.post(fullUrl, props, config);
+      
+      // Handle empty response
+      if (!response.data) {
+        return {
+          response,
+          body: {
+            status: false,
+            message: "server error [001]",
+          },
+        };
+      }
+
+      return { response, body: response.data };
+    } catch (error: any) {
+      if (error.response) {
+        return {
+          response: error.response,
+          body: {
+            status: false,
+            message: error.response.data?.message || "An error occurred",
+            errors: error.response.data?.errors,
+          },
+        };
+      }
+
+      return {
+        data: {
+          status: false,
+          message: "server error [100]",
         },
       };
     }
-    const response = await axioClient
-      .post(fullUrl, props, config)
-      .then((response) => {
-        if (response.data == undefined || response.data == "") {
-          response.data = {
-            status: false,
-            message: "server error [001]",
-          };
-        }
-        return response;
-      })
-      .catch((error) => {
-        if (error.response && error.response.status == 422) {
-          error.response.data.status = false;
-          return error.response;
-        } else if (error.response) {
-          error.response.data = {
-            status: false,
-            message: error?.response?.data.message,
-            errors: error?.response?.data.errors,
-          };
-          return error.response;
-        } else {
-          return {
-            data: {
-              status: false,
-              message: "server error [100]",
-            },
-          };
-        }
-      });
-
-    const body = response.data;
-    return { response, body };
   };
 
   return { post };

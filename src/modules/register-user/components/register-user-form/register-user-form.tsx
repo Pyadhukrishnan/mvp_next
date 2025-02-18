@@ -115,6 +115,7 @@ const RegisterUserForm: React.FC<RegistrationFormProps> = ({
               value={newPassword}
               onChange={setNewPassword}
               errorStatus={!!newPasswordError}
+              type="password"
             />
             <p>・半角大文字, 小文字, 数字を含めた12文字以上20桁以内</p>
             {newPasswordError && <p className={styles.errorMessage}>{newPasswordError}</p>}
