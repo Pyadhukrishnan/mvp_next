@@ -1,0 +1,36 @@
+.navBlockWrapper{
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: row;
+    column-gap: 4px;
+    max-width: 240px;
+    padding: 6px 0px 6px 16px;
+    height: 32px;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.active{
+    background-color: var(--primary-font-color-6);
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label{
+    font-size: var(--body-medium-font);
+    font-weight: 600;
+}
+
+.navBlockWrapper:hover{
+    background-color: var(--primary-font-color-6);
+}

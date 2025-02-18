@@ -3,6 +3,7 @@ import { Options } from '@/interfaces/user';
 import DatePicker from '@/themes/components/date-picker/date-picker';
 import RadioButtons from '@/themes/components/radio-buttons/radio-buttons';
 import SelectionComponent from '@/themes/components/selection-component/selection-component';
+import SideNavbar from '@/themes/components/side-navbar/side-navbar';
 import React, { useEffect, useState } from 'react';
 
 export default function page() {
@@ -37,8 +38,8 @@ export default function page() {
         console.log(date);
     },[date])
   return (
-    <div style={{marginTop:"100px"}}>
-        <SelectionComponent options={options} setSelected={setDate} error={true}/>
+    <div style={{paddingTop:"145px"}}>
+        <SideNavbar />
     </div>
   )
 }

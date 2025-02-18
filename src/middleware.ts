@@ -16,7 +16,6 @@ export function middleware(request: NextRequest) {
   }
 
   const authToken = request.cookies.get("accessToken")?.value; // Read token from cookies
-  console.log("token", authToken);
 
   // Login page logic
   if (pathname === "/login") {
