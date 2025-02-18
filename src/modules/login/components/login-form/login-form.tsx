@@ -37,9 +37,9 @@ const LoginForm: React.FC<LoginProps> = ({
     const response = await UseLoginServices().login(email, password);
 
     // Set error messages based on API response
-    setEmailError(response.errors.emailError);
-    setPasswordError(response.errors.passwordError);
-    setMainError(response.errors.mainError);
+    setEmailError(response.errors!.emailError);
+    setPasswordError(response.errors!.passwordError);
+    setMainError(response.errors!.mainError);
 
     // If login is successful, set props to show verification component
     if (response.status) {
