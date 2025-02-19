@@ -1,9 +1,25 @@
 .sideNavbar{
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     row-gap: 24px;
     max-width: 257px;
     padding: 0px 5px 0px 5px;
+    position: fixed;
+    margin-bottom: 30px;
+    height: 100%;
+}
+
+.navigationLinks{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    overflow-y: scroll !important;
+    height: calc(100vh - 165px);
+}
+
+.navigationLinks::-webkit-scrollbar{
+    display: none;
 }
 
 .header{

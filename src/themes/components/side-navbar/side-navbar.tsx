@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./side-navbar.module.css";
 import { Icons } from "@/themes/icons/icons";
@@ -24,39 +25,41 @@ const SideNavbar = () => {
         <span>もどる</span>
       </div>
 
-      <div className={styles.account}>
-        <h2>アカウント</h2>
-        <div className={styles.accountNavigationLinks}>
-          {accountLinks.map((link) => {
-            return (
-              <SideNavbarBlock
-                active={getActiveStatus(link.path, pathname)}
-                icon={Icons[link.icon]}
-                label={link.label}
-                onClickFInction={() => {
-                  handleNavClick(link.path);
-                }}
-              />
-            );
-          })}
+      <div className={styles.navigationLinks}>
+        <div className={styles.account}>
+          <h2>アカウント</h2>
+          <div className={styles.accountNavigationLinks}>
+            {accountLinks.map((link) => {
+              return (
+                <SideNavbarBlock
+                  active={getActiveStatus(link.path, pathname)}
+                  icon={Icons[link.icon]}
+                  label={link.label}
+                  onClickFInction={() => {
+                    handleNavClick(link.path);
+                  }}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      <div className={styles.basicInformation}>
-        <h2>基本情報</h2>
-        <div className={styles.basicInformationLinks}>
-          {basicInformationLinks.map((link) => {
-            return (
-              <SideNavbarBlock
-                active={getActiveStatus(link.path, pathname)}
-                icon={Icons[link.icon]}
-                label={link.label}
-                onClickFInction={() => {
-                  handleNavClick(link.path);
-                }}
-              />
-            );
-          })}
+        <div className={styles.basicInformation}>
+          <h2>基本情報</h2>
+          <div className={styles.basicInformationLinks}>
+            {basicInformationLinks.map((link) => {
+              return (
+                <SideNavbarBlock
+                  active={getActiveStatus(link.path, pathname)}
+                  icon={Icons[link.icon]}
+                  label={link.label}
+                  onClickFInction={() => {
+                    handleNavClick(link.path);
+                  }}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
