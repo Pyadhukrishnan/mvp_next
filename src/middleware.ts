@@ -30,9 +30,9 @@ export function middleware(request: NextRequest) {
   // Protect other routes (non-login routes)
   if (request.method === "GET") {
     // Redirect to login if no cookie exists (not logged in)
-    if (!authToken) {
-      return NextResponse.redirect(new URL("/login", request.url)); // Redirect to login
-    }
+    // if (!authToken) {
+    //   return NextResponse.redirect(new URL("/login", request.url)); // Redirect to login
+    // }
   }
 
   return NextResponse.next(); // Allow request to continue
