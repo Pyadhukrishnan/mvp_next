@@ -41,6 +41,6 @@ export function middleware(request: NextRequest) {
 // Apply middleware to all routes (or adjust the matcher to limit to specific routes)
 export const config = {
   matcher: [
-    "/(.*)",  // Apply to the home route and any other route that needs protection
+    "/",  // Apply to the home route and any other route that needs protection
   ],
 };
