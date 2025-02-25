@@ -54,6 +54,14 @@ const AdditionalInfo: React.FC = () => {
     { label: "鹿児島県", value: "Kagoshima Prefecture" }
   ];
 
+  const handleSubmit = async() => {
+    try{
+      const response = await
+    }catch(error){
+      console.log(error);
+    }
+  }
+
   return (
     <form className={styles.additionalFormWrapper}>
       <div className={styles.header}>

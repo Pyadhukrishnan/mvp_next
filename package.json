@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export"
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -27,5 +28,17 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pyadhukrishnan/mvp_next.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pyadhukrishnan/mvp_next/issues"
+  },
+  "homepage": "https://github.com/Pyadhukrishnan/mvp_next#readme"
 }
